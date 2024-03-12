@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="paddingLarge">24dp</dimen>
+    <dimen name="textNormal">20sp</dimen>
+    <dimen name="textGaint">36sp</dimen>
+    <dimen name="textButton">18sp</dimen>
+    <dimen name="radiusLarge">15dp</dimen>
+    <dimen name="marginGaint">96dp</dimen>
+    <dimen name="button_size">56dp</dimen>
+    <dimen name="recycler_view_height">140dp</dimen>
+
+</resources>
