@@ -7,6 +7,7 @@
     <dimen name="radiusLarge">15dp</dimen>
     <dimen name="marginGaint">96dp</dimen>
     <dimen name="button_size">56dp</dimen>
+    <dimen name="button_size_land">48dp</dimen>
     <dimen name="recycler_view_height">140dp</dimen>
 
 </resources>

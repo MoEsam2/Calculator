@@ -49,10 +49,10 @@
         app:layout_constraintStart_toStartOf="@+id/recyclerView">
 
         <TextView
-            android:id="@+id/textHeader"
+            android:id="@+id/textHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Header"
+            android:text="History"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,9 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_up"
-            app:layout_constraintBottom_toBottomOf="@+id/textHeader"
-            app:layout_constraintEnd_toStartOf="@id/textHeader"
-            app:layout_constraintTop_toTopOf="@+id/textHeader" />
+            app:layout_constraintBottom_toBottomOf="@+id/textHistory"
+            app:layout_constraintEnd_toStartOf="@id/textHistory"
+            app:layout_constraintTop_toTopOf="@+id/textHistory" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
