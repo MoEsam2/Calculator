@@ -1,7 +1,6 @@
 package com.example.calculator
 
 import android.os.Bundle
-import android.util.LruCache
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     private var isRecyclerViewExpanded = false
     private lateinit var binding: ActivityMainBinding
     private lateinit var calculatorViewModel: CalculatorViewModel
-    private val cache = LruCache<String, String>(10 * 1024 * 1024)
     private lateinit var adapter: ResultAdapter
 
 
@@ -34,6 +32,10 @@ class MainActivity : AppCompatActivity() {
             isFocusable = true
         }
 
+        calculatorViewModel.getCalculationHistory().forEach {
+            adapter.setData(it)
+        }
+
         calculatorViewModel.inputExpression.observe(this, Observer {
             it?.let {
                 binding.textCalculation.text = it
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 updateDisplay(it)
             }
         })
+
 
     }
 
@@ -81,7 +84,6 @@ class MainActivity : AppCompatActivity() {
             buttonEqual.setOnClickListener {
                 calculatorViewModel.evaluateExpression()
                 val result = "${binding.textCalculation.text} = ${binding.textResult.text}"
-                cache.put("Result", result)
                 adapter.setData(result)
 
             }
@@ -112,5 +114,8 @@ class MainActivity : AppCompatActivity() {
         isRecyclerViewExpanded = !isRecyclerViewExpanded
     }
 
-
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        calculatorViewModel.setCalculationHistory(adapter.getItems())
+    }
 }

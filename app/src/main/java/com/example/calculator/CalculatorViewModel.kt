@@ -7,6 +7,8 @@ import java.text.DecimalFormat
 
 class CalculatorViewModel : ViewModel() {
 
+    private val calculationHistory = mutableListOf<String>()
+
     private var _displayText = MutableLiveData<String>()
 
     val displayText: LiveData<String>
@@ -152,4 +154,12 @@ class CalculatorViewModel : ViewModel() {
     }
 
 
+    fun setCalculationHistory(history: List<String>){
+        calculationHistory.clear()
+        calculationHistory.addAll(history)
+    }
+
+    fun getCalculationHistory():List<String>{
+        return calculationHistory.toList()
+    }
 }

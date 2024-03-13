@@ -33,4 +33,8 @@ class ResultAdapter : RecyclerView.Adapter<ResultAdapter.ResultViewHolder>() {
         data.add(item)
         notifyItemInserted(data.size - 1)
     }
+
+    fun getItems(): List<String> {
+        return data.toList()
+    }
 }
